@@ -57,3 +57,38 @@ AAGTAGGTCTCGTCTGTGTTTTCTACGAGCTTGTGTTCCAGCTGACCCACTCCCTGGGTGGGGGGACTGGGT
 ;;;;;;;;;;;;;;;;;4;;;;3;393.1+4&&5&&;;;;;;;;;;;;;;;;;;;;;<9;<;;;;;464262
 ```
 
+# How to download multiple files at the same time
+## The first thing we need is to create an accessing list, which is a file with all the sampleID you want to download. 
+Here's one example that you can use: 
+
+let nano this into a file called "accession_list.txt"
+```
+SAMN07790138,SRR6178104,Camacho_Ortiz_2017
+SAMN07790141,SRR6178139,Camacho_Ortiz_2017
+SAMN03002640,SRR1556545,PRJNA259188
+SAMN03002648,SRR1556555,PRJNA259188
+```
+The first column is the sampleID that we will feed into the fastq-dump to download, the second column is the runID that, and the third column is the name of the study just to keep an record. You can definetly add more information or less information for your purposes/own person habit but the sampleID is the required information. 
+
+## Next we will feed the accession list to the fastq-dump to download multiple files at the same time
+lets use nano to write this into a shell script
+```
+while read line; do
+
+# extract run number
+SampleID=$(echo $line | cut -d',' -f1)
+RunID=$(echo $line | cut -d',' -f2)
+echo $SampleID $RunID
+
+if [ ! -f "reads/${SampleID}/${RunID}_1.fastq.gz" ]; then
+	mkdir -p reads/$SampleID # create a folder for each Biosample
+	cd reads/$SampleID
+	echo \-\-\-\> Downloading $SampleID
+	fastq-dump --split-files --gzip $RunID # use fastq-dump to download its reads
+	cd ../../
+else
+	echo \-\-\-\> $SampleID already downloaded
+fi
+
+done <scratch/accession_list.txt # move to next sample (ie line of file)
+```
