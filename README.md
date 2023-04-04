@@ -15,7 +15,7 @@ wget --output-document sratoolkit.tar.gz https://ftp-trace.ncbi.nlm.nih.gov/sra/
 ```
 tar -vxzf sratoolkit.tar.gz
 ```
--v verbose shows the files tar works on while the command is running
--x extract extract one or more items from an archive
--z read or write compressed archives through bzip2 format
--f specifies the file
++-v verbose shows the files tar works on while the command is running
++-x extract extract one or more items from an archive
++-z read or write compressed archives through bzip2 format
++-f specifies the file
