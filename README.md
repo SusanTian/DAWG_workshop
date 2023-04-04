@@ -15,7 +15,45 @@ wget --output-document sratoolkit.tar.gz https://ftp-trace.ncbi.nlm.nih.gov/sra/
 ```
 tar -vxzf sratoolkit.tar.gz
 ```
-+-v verbose shows the files tar works on while the command is running
-+-x extract extract one or more items from an archive
-+-z read or write compressed archives through bzip2 format
-+-f specifies the file
+- -v verbose shows the files tar works on while the command is running
+- -x extract extract one or more items from an archive
+- -z read or write compressed archives through bzip2 format
+- -f specifies the file, follow by file names
+
+3. we will append the path to the binaries to your PATH environment variable:
+```
+export PATH=$PATH:$PWD/sratoolkit.3.0.1-ubuntu64/bin
+```
+
+4. Before we configure the toolkit, we will verify the binaries will be found by the shell
+```
+which fastq-dump
+```
+
+5.  Now we can proceed to the configuration step followed by this command:
+```
+vdb-config i
+```
+These are the parameters we need to set up:
+- Enable the "Remote Access" option on the Main screen.
+- Go to cloud provider tab and accept to "report cloud instance identity".
+
+6. Test that the toolkit if functional:
+```
+fastq-dump --stdout -X 2 SRR390728
+```
+
+the command should produce the following output
+```
+Read 2 spots for SRR390728
+Written 2 spots for SRR390728
+@SRR390728.1 1 length=72
+CATTCTTCACGTAGTTCTCGAGCCTTGGTTTTCAGCGATGGAGAATGACTTTGACAAGCTGAGAGAAGNTNC
++SRR390728.1 1 length=72
+;;;;;;;;;;;;;;;;;;;;;;;;;;;9;;665142;;;;;;;;;;;;;;;;;;;;;;;;;;;;;96&&&&(
+@SRR390728.2 2 length=72
+AAGTAGGTCTCGTCTGTGTTTTCTACGAGCTTGTGTTCCAGCTGACCCACTCCCTGGGTGGGGGGACTGGGT
++SRR390728.2 2 length=72
+;;;;;;;;;;;;;;;;;4;;;;3;393.1+4&&5&&;;;;;;;;;;;;;;;;;;;;;<9;<;;;;;464262
+```
+
