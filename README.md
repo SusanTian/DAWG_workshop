@@ -63,10 +63,8 @@ Here's one example that you can use:
 
 let nano this into a file called "accession_list.txt" 
 ```
-SAMN07790138,SRR6178104,Camacho_Ortiz_2017
 SAMN07790141,SRR6178139,Camacho_Ortiz_2017
 SAMN03002640,SRR1556545,PRJNA259188
-SAMN03002648,SRR1556555,PRJNA259188
 ```
 The first column is the sampleID that we will feed into the fastq-dump to download, the second column is the runID that, and the third column is the name of the study just to keep an record. You can definetly add more information or less information for your purposes/own person habit but the sampleID is the required information. 
 
