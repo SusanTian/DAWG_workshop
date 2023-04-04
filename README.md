@@ -61,7 +61,7 @@ AAGTAGGTCTCGTCTGTGTTTTCTACGAGCTTGTGTTCCAGCTGACCCACTCCCTGGGTGGGGGGACTGGGT
 ## The first thing we need is to create an accessing list, which is a file with all the sampleID you want to download. 
 Here's one example that you can use: 
 
-let nano this into a file called "accession_list.txt"
+let nano this into a file called "accession_list.txt" 
 ```
 SAMN07790138,SRR6178104,Camacho_Ortiz_2017
 SAMN07790141,SRR6178139,Camacho_Ortiz_2017
@@ -71,7 +71,7 @@ SAMN03002648,SRR1556555,PRJNA259188
 The first column is the sampleID that we will feed into the fastq-dump to download, the second column is the runID that, and the third column is the name of the study just to keep an record. You can definetly add more information or less information for your purposes/own person habit but the sampleID is the required information. 
 
 ## Next we will feed the accession list to the fastq-dump to download multiple files at the same time
-lets use nano to write this into a shell script
+lets use nano to write this into a shell script called "fastq.sh"
 ```
 while read line; do
 
@@ -93,3 +93,6 @@ fi
 done <scratch/accession_list.txt # move to next sample (ie line of file)
 ```
 
+```
+bash fastq.sh
+```
