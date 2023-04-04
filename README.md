@@ -92,3 +92,4 @@ fi
 
 done <scratch/accession_list.txt # move to next sample (ie line of file)
 ```
+
