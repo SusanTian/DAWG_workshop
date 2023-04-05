@@ -7,3 +7,20 @@ Sourceracker2 is a tool to study microbial source using the Gibb's sampler. As a
 Here's a fuller [explanation of the machinary and the raw code](https://github.com/biota/sourcetracker2/blob/master/ipynb/Sourcetracking%20using%20a%20Gibbs%20Sampler.ipynb) for sourcetracker2. This page will go through the installation and usage of sourcetracker2 to track the source of each sequences in order to assess the contamination proportion. 
 
 # Installation
+```
+conda create -n st2 -c biocore python=3.8 numpy scipy scikit-bio biom-format h5py hdf5 seaborn
+```
+Restart terminal
+```
+conda activate st2
+```
+```
+pip install sourcetracker
+```
+To test if the installation is successful: 
+```
+sourcetracker2 gibbs --help
+```
+
+# Download data files from previous sessions (MEGAN result)
+
