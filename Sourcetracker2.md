@@ -23,4 +23,9 @@ sourcetracker2 gibbs --help
 ```
 
 # Download data files from previous sessions (MEGAN result)
-
+```
+cd scratch
+wget --no-check-certificate "https://github.com/SusanTian/DAWG_workshop/blob/main/sourcetracker2analysis.zip" -O sourcetracker2.zip
+unzip sourcetracker2.zip -d sourcetracker2
+cd sourcetracker2
+```
