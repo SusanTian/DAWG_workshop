@@ -27,6 +27,61 @@ sourcetracker2 gibbs --help
 cd scratch
 mkdir sourcetracker2
 wget --no-check-certificate "https://github.com/SusanTian/DAWG_workshop/blob/main/Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt" -O sourcetracker2/mappingfile.txt
-wget --no-check-certificate "https://github.com/SusanTian/DAWG_workshop/blob/main/Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt" -O sourcetracker2
+wget --no-check-certificate "https://github.com/SusanTian/DAWG_workshop/blob/main/feature-table.biom" -O sourcetracker2/featuretable.biom
 cd sourcetracker2
+```
+
+# Sourcetracker2 Script
+nano sourcetracker2.sh
+```
+# ctivate sourcetracker2 in the terminal 
+conda activate st2
+
+#run with plaque and modern calculus as Oral (combine the two)
+sourcetracker2 gibbs -i feature-table.biom \
+-m Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt --alpha2 1.000 \
+-o sourcetracker-results-10000-alpha2-ORAL --sink_rarefaction_depth 1000 --source_rarefaction_depth 1000
+```
+
+# Plotting using R
+```
+# summarize sourcetracker results 
+
+#### set working directory ####
+setwd("sbt5355/scratch/sourcetracker2")
+
+#### load packages ####
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(ggthemes)
+library(extrafont)
+library(scales)
+library(reshape2)
+library(forcats)
+
+#### load data with modern dental calculus and plaque ####
+data <- read.csv("sourcetracker-results.csv")
+
+#### reformat data ####
+data.df<-as.data.frame.matrix(data)
+data.long<-melt(data.df, id.vars = c("SampleID"), value.name = "Proportion")
+names(data.long)[2]<-paste("Environment")
+
+#### stacked-bar plot ####
+ggplot() + geom_bar(aes(y = data.long$Proportion, x = data.long$SampleID, fill = data.long$Environment), stat = "identity") +
+  labs(x = "Samples", y = "Percentage") +
+  theme_bw() +
+  scale_fill_manual(name = "Environment", values = c("lightskyblue", "thistle", "firebrick", "darkseagreen","peachpuff", "gray80"))+
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.border = element_blank(),
+        axis.text = element_text(size = 14),
+        axis.title = element_text(size = 20),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size = 14)
+  )
+```
+
 ```
