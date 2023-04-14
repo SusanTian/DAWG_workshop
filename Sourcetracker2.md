@@ -27,7 +27,7 @@ sourcetracker2 gibbs --help
 cd scratch
 mkdir sourcetracker2
 cd sourcetracker2
-wget "https://github.com/SusanTian/DAWG_workshop/blob/main/Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt" -O Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt
+wget --no-check-certificate --content-disposition "https://raw.githubusercontent.com/SusanTian/DAWG_workshop/main/Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt" -O Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt
 wget "https://github.com/SusanTian/DAWG_workshop/blob/main/feature-table.biom" -O feature-table.biom
 ```
 
