@@ -36,7 +36,6 @@ wget "https://github.com/SusanTian/DAWG_workshop/blob/main/feature-table.biom" -
 nano sourcetracker2.sh
 ```
 ```
-mkdir sourcetracker-results-10000-alpha2-ORAL
 #run with plaque and modern calculus as Oral (combine the two)
 sourcetracker2 gibbs -i feature-table.biom \
 -m Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt --alpha2 1.000 \
