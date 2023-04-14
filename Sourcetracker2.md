@@ -47,6 +47,9 @@ bash sourcetracker2.sh
 
 # Plotting using R
 ```
+wget "https://github.com/SusanTian/DAWG_workshop/blob/main/sourcetracker-results.csv"
+```
+```
 # summarize sourcetracker results 
 
 #### set working directory ####
