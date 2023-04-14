@@ -27,8 +27,8 @@ sourcetracker2 gibbs --help
 cd scratch
 mkdir sourcetracker2
 cd sourcetracker2
-wget --no-check-certificate "https://github.com/SusanTian/DAWG_workshop/blob/main/Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt" 
-wget --no-check-certificate "https://github.com/SusanTian/DAWG_workshop/blob/main/feature-table.biom" 
+wget "https://github.com/SusanTian/DAWG_workshop/blob/main/Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt" 
+wget "https://github.com/SusanTian/DAWG_workshop/blob/main/feature-table.biom" 
 ```
 
 # Sourcetracker2 Script
@@ -53,7 +53,7 @@ wget "https://github.com/SusanTian/DAWG_workshop/blob/main/sourcetracker-results
 # summarize sourcetracker results 
 
 #### set working directory ####
-setwd("sbt5355/scratch/sourcetracker2")
+setwd("/storage/home/s/sbt5355/scratch/sourcetracker2")
 
 #### load packages ####
 library(ggplot2)
