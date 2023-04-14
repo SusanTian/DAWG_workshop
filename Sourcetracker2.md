@@ -26,21 +26,23 @@ sourcetracker2 gibbs --help
 ```
 cd scratch
 mkdir sourcetracker2
-wget --no-check-certificate "https://github.com/SusanTian/DAWG_workshop/blob/main/Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt" -O sourcetracker2/mappingfile.txt
-wget --no-check-certificate "https://github.com/SusanTian/DAWG_workshop/blob/main/feature-table.biom" -O sourcetracker2/featuretable.biom
 cd sourcetracker2
+wget --no-check-certificate "https://github.com/SusanTian/DAWG_workshop/blob/main/Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt" 
+wget --no-check-certificate "https://github.com/SusanTian/DAWG_workshop/blob/main/feature-table.biom" 
 ```
 
 # Sourcetracker2 Script
+```
 nano sourcetracker2.sh
 ```
-# ctivate sourcetracker2 in the terminal 
-conda activate st2
-
+```
 #run with plaque and modern calculus as Oral (combine the two)
 sourcetracker2 gibbs -i feature-table.biom \
 -m Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt --alpha2 1.000 \
 -o sourcetracker-results-10000-alpha2-ORAL --sink_rarefaction_depth 1000 --source_rarefaction_depth 1000
+```
+```
+bash sourcetracker2.sh
 ```
 
 # Plotting using R
@@ -84,4 +86,3 @@ ggplot() + geom_bar(aes(y = data.long$Proportion, x = data.long$SampleID, fill =
   )
 ```
 
-```
