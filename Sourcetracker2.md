@@ -27,8 +27,8 @@ sourcetracker2 gibbs --help
 cd scratch
 mkdir sourcetracker2
 cd sourcetracker2
-wget "https://github.com/SusanTian/DAWG_workshop/blob/main/Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt" 
-wget "https://github.com/SusanTian/DAWG_workshop/blob/main/feature-table.biom" 
+wget "https://github.com/SusanTian/DAWG_workshop/blob/main/Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt" -O Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt
+wget "https://github.com/SusanTian/DAWG_workshop/blob/main/feature-table.biom" -O feature-table.biom
 ```
 
 # Sourcetracker2 Script
@@ -47,7 +47,7 @@ bash sourcetracker2.sh
 
 # Plotting using R
 ```
-wget "https://github.com/SusanTian/DAWG_workshop/blob/main/sourcetracker-results.csv"
+wget "https://github.com/SusanTian/DAWG_workshop/blob/main/sourcetracker-results.csv" -O sourcetracker-results.csv
 ```
 ```
 # summarize sourcetracker results 
