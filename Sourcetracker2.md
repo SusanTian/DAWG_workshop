@@ -28,7 +28,7 @@ cd scratch
 mkdir sourcetracker2
 cd sourcetracker2
 wget --no-check-certificate --content-disposition "https://raw.githubusercontent.com/SusanTian/DAWG_workshop/main/Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt" -O Sourcetracker-Georgia-Filtered-MappingFile28MAR23.txt
-wget "https://github.com/SusanTian/DAWG_workshop/blob/main/feature-table.biom" -O feature-table.biom
+wget --no-check-certificate --content-disposition "https://github.com/SusanTian/DAWG_workshop/blob/main/feature-table.biom?raw=true" -O feature-table.biom
 ```
 
 # Sourcetracker2 Script
