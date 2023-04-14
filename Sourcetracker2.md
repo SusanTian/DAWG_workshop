@@ -59,22 +59,16 @@ setwd("/storage/home/s/sbt5355/scratch/sourcetracker2")
 library(ggplot2)
 library(dplyr)
 library(tidyr)
-library(ggthemes)
-library(extrafont)
-library(scales)
-library(reshape2)
-library(forcats)
 
-#### load data with modern dental calculus and plaque ####
-data <- read.csv("sourcetracker-results.csv")
+#### Read in Tables ####
+result <- read_csv("sourcetracker-results.csv")
 
-#### reformat data ####
-data.df<-as.data.frame.matrix(data)
-data.long<-melt(data.df, id.vars = c("SampleID"), value.name = "Proportion")
-names(data.long)[2]<-paste("Environment")
 
-#### stacked-bar plot ####
-ggplot() + geom_bar(aes(y = data.long$Proportion, x = data.long$SampleID, fill = data.long$Environment), stat = "identity") +
+#### Plot the data ####
+result %>% 
+  pivot_longer(!SampleID, names_to = "Environment", values_to = "Proportion") %>% 
+  ggplot()+
+  geom_bar(aes(y=Proportion, x=SampleID, fill = Environment), stat = "identity") +
   labs(x = "Samples", y = "Percentage") +
   theme_bw() +
   scale_fill_manual(name = "Environment", values = c("lightskyblue", "thistle", "firebrick", "darkseagreen","peachpuff", "gray80"))+
@@ -87,5 +81,3 @@ ggplot() + geom_bar(aes(y = data.long$Proportion, x = data.long$SampleID, fill =
         legend.title = element_text(size = 18),
         legend.text = element_text(size = 14)
   )
-```
-
