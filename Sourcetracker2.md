@@ -61,7 +61,7 @@ library(dplyr)
 library(tidyr)
 
 #### Read in Tables ####
-result <- read_csv("sourcetracker-results.csv")
+result <- read.csv("sourcetracker-results.csv")
 
 
 #### Plot the data ####
